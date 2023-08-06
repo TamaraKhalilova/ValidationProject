@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import validator from 'validator';
+
 import { setFirstName, setLastname, setEmail, setMessage } from '../../store/actions';
 
 export const useUserForm = () => {
@@ -23,10 +25,7 @@ export const useUserForm = () => {
 		setErrors({ ...errors, [name]: false });
   };
 
-	const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+	const validateEmail = (email) => validator.isEmail(email);
 
 	const onBlur = (event) => {
     const { name, value } = event.target;
