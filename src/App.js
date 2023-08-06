@@ -1,15 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { UserForm } from './components'
+import { UserForm, ValuesList } from './components'
 
 function App() {
   const storeData = useSelector((state) => state.user);
-  console.log('STORE DATA', storeData)
-
+  const isFilled = !!storeData.firstname;
   return (
       <div className="App">
         <UserForm />
+        <hr/>
+        {isFilled && <ValuesList />}
       </div>
   );
 }
