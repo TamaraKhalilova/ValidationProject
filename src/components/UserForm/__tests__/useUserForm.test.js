@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useUserForm } from './useUserForm';
+import { useUserForm } from '../useUserForm';
 
 const mockDispatch = jest.fn();
 const mockAlert = jest.spyOn(window, 'alert'); 
